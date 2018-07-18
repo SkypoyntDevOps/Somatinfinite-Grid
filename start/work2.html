@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+	
+	<title>Infinite Grid Pro</title>
+	
+	<link rel="stylesheet" type="text/css"  href="css/page.css"/>
+	<link rel="stylesheet" type="text/css"  href="content/global.css"/>
+	
+	<script type="text/javascript" src="java/FWDPage.js"></script>
+	<script type="text/javascript" src="java/FWDPageComplexButton.js"></script>
+	<script type="text/javascript" src="java/FWDPageMenu.js"></script>
+	<script type="text/javascript" src="java/FWDPageMenuButton.js"></script>
+	<script type="text/javascript" src="java/FWDApiButton.js"></script>
+	<script type="text/javascript" src="java/FWDExamplePageGrid.js"></script>
+	<script type="text/javascript" src="java/FWDExamplePageGridThumb.js"></script>
+	<script type="text/javascript" src="java/FWDPageThumb.js"></script>
+	<script type="text/javascript" src="java/FWDPageSimpleButton.js"></script>
+	<script type="text/javascript" src="java/FWDBuyButton.js"></script>
+	<script type="text/javascript" src="java/FWDAnimButton.js"></script>
+	
+	<script type="text/javascript" src="../js/FWDRLConsole.js"></script>
+	<script type="text/javascript" src="../js/FWDRLDisplayObject.js"></script>
+	<script type="text/javascript" src="../js/FWDRLTransformDisplayObject.js"></script>
+	<script type="text/javascript" src="../js/FWDRL.js"></script>
+	<script type="text/javascript" src="../js/FWDRLData.js"></script>
+	<script type="text/javascript" src="../js/FWDRLDL.js"></script>
+	<script type="text/javascript" src="../js/FWDRLInfo.js"></script>
+	<script type="text/javascript" src="../js/FWDRLUtils.js"></script>		
+	<script type="text/javascript" src="../js/FWDRLTweenMax.js"></script>	
+	<script type="text/javascript" src="../js/FWDRLContextMenu.js"></script>
+	<script type="text/javascript" src="../js/FWDRLEventDispatcher.js"></script>
+	<script type="text/javascript" src="../js/FWDRLPreloader.js"></script>
+	<script type="text/javascript" src="../js/FWDRLComplexButton.js"></script>
+	<script type="text/javascript" src="../js/FWDRLSimpleButton.js"></script>
+	<script type="text/javascript" src="../js/FWDRLHider.js"></script>
+	<script type="text/javascript" src="../js/FWDRLThumbnailsManager.js"></script>
+	<script type="text/javascript" src="../js/FWDRLThumb.js"></script>
+	<script type="text/javascript" src="../js/FWDRLTimerManager.js"></script>
+	<script type="text/javascript" src="../js/FWDRLSlideShowPreloader.js"></script>
+	<script type="text/javascript" src="../js/FWDRLDescriptionWindow.js"></script>
+	<script type="text/javascript" src="../js/FWDRLFacebookShare.js"></script>
+	<script type="text/javascript" src="../js/FWDRLFlashTest.js"></script>
+	<script type="text/javascript" src="../js/FWDRLEVPlayer.js"></script>
+	<script type="text/javascript" src="../js/FWDRLEVPVideoScreen.js"></script>
+	<script type="text/javascript" src="../js/FWDRLEVPVolumeButton.js"></script>
+	<script type="text/javascript" src="../js/FWDRLEVPController.js"></script>
+	<script type="text/javascript" src="../js/FWDRLEVPPoster.js"></script>
+	<script type="text/javascript" src="../js/FWDRLEAP.js"></script>
+	<script type="text/javascript" src="../js/FWDRLEAPAudioScreen.js"></script>
+	<script type="text/javascript" src="../js/FWDRLEAPController.js"></script>
+	
+	<script type="text/javascript" src="../js/FWDIGP.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPData.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPComboBox.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPComboBoxButton.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPComboBoxSelector.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPNavigationHelpScreen.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPThumbsManager.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPThumb.js"></script>
+	
+	<script type="text/javascript">
+		FWDRLConsole.setPrototype();
+		var logger = new FWDRLConsole();
+		
+		FWDRLUtils.onReady(function(){
+			init(0, 0);
+		});
+		
+		function setupGrid(){
+				new FWDIGP({
+					//main settings 
+					rightClickContextMenu:"default",
+					instanceName:"myIGP",
+					parentId:"myDiv",
+					mainFolderPath:"content",
+					skinPath:"minimal-skin",
+					playlistId:"myPlaylist",
+					displayType:"fluidwidth",
+					dragDirection:"both",
+					autoScrollDirection:"left",
+					thumbnailTransitionType:"opcacity",
+					allCategoriesLabel:"All Categories (mixed)",
+					showAllCategories:"yes",
+					autoScale:"yes",
+					autoScroll:"no",
+					enableVisitedThumbnails:"no",
+					addZoomSupport:"yes",
+					addDragAndSwipeSupport:"yes",
+					disableThumbnailInteractivity:"no",
+					randomizeAllCategories:"yes",
+					randomizeCategories:"no",
+					showThumbnailOverlay:"yes",
+					showThumbnailIcon:"no",
+					showHelpScreen:"yes",
+					startAtCategory:1,
+					maxWidth:940,
+					maxHeight:600,
+					thumbnailMaxWidth:210,
+					thumbnailMaxHeight:190,
+					maxScale:1.6,
+					minScale:.8,
+					autoScrollSpeed:0,
+					thumbnailOverlayOpacity:.7,
+					helpScreenOpacity:.3,
+					backgroundColor:"#000000",
+					thumbnailBackgroundColor:"#111111",
+					thumbnailOverlayColor:"#000000",
+					helpScreenBackgroundColor:"#FFFFFF",
+					//combobox settings
+					selectLabel:"SELECT CATEGORIES",
+					comboBoxPosition:"topRight",
+					showComboBox:"yes",
+					comboBoxHorizontalMargins:12,
+					comboBoxVerticalMargins:12,
+					comboBoxCornerRadius:0,
+					selctorBackgroundNormalColor:"#FFFFFF",
+					selctorBackgroundSelectedColor:"#000000",
+					selctorTextNormalColor:"#000000",
+					selctorTextSelectedColor:"#FFFFFF",
+					buttonBackgroundNormalColor:"#FFFFFF",
+					buttonBackgroundSelectedColor:"#000000",
+					buttonTextNormalColor:"#000000",
+					buttonTextSelectedColor:"#FFFFFF",
+					comboBoxShadowColor:"#000000",
+					//ligtbox settings (optional)
+					buttonsAlignment:"in",
+					itemBoxShadow:"none",
+					descriptionWindowAnimationType:"opacity",
+					descriptionWindowPosition:"bottom",
+					slideShowAutoPlay:"no",
+					addKeyboardSupport:"yes",
+					showCloseButton:"yes",
+					showShareButton:"yes",
+					showZoomButton:"yes",
+					showSlideShowButton:"yes",
+					showSlideShowAnimation:"yes",
+					showNextAndPrevButtons:"yes",
+					showNextAndPrevButtonsOnMobile:"yes",
+					showDescriptionButton:"yes",
+					showDescriptionByDefault:"no",
+					videoShowFullScreenButton:"yes",
+					videoAutoPlay:"no",
+					nextVideoOrAudioAutoPlay:"yes",
+					videoLoop:"no",
+					audioAutoPlay:"no",
+					audioLoop:"no",
+					backgroundOpacity:.9,
+					descriptionWindowBackgroundOpacity:.95,
+					buttonsHideDelay:3,
+					slideShowDelay:4,
+					defaultItemWidth:640,
+					defaultItemHeight:480,
+					itemOffsetHeight:50,
+					spaceBetweenButtons:1,
+					buttonsOffsetIn:2,
+					buttonsOffsetOut:5,
+					itemBorderSize:0,
+					itemBorderRadius:0,
+					itemBackgroundColor:"#333333",
+					itemBorderColor:"#333333",
+					lightBoxBackgroundColor:"#000000",
+					descriptionWindowBackgroundColor:"#FFFFFF",
+					videoPosterBackgroundColor:"#0099FF",
+					videoControllerBackgroundColor:"#FFFFFF",
+					audioControllerBackgroundColor:"#FFFFFF",
+					timeColor:"#000000"
+			});
+		}
+	</script>
+</head>
+
+<body>
+	
+	<!-- header -->
+	<div id="mainHeader">
+		<img id="logoImage" src="graphics/logo.jpg"/>
+		<img id="byFWD" src="graphics/fwd.png"/>
+	</div>
+	
+	<!-- menu holder -->
+	<div id="menuHolder"></div>
+	
+	<!-- grid holder -->
+	<div id="myDiv"></div>
+	
+	<div id="examplesWrapper">
+		<p class="headerTextGrid"><span class="white">Infinite Grid Pro</span> various examples:</p>
+		<div id="examplesGrid"></div>
+	</div>
+		
+	<!-- what is -->
+	<div id="mainInfoHolder">
+		<p class="headerTextGrid">What is <span class="white">Infinite Grid Pro ?</span></p>
+		<div id="whatIsMainText">
+			<p>Infinite Grid Pro is an unique responsive HTML5 <span class="myBold">multimedia infinite grid</span> that can only be found on sale here, it runs on all major browsers and mobile devices like <span class="myBold">iPhone</span>, <span class="myBold">iPad</span>, <span class="myBold">IOS</span>, <span class="myBold">Android</span> and <span class="myBold">Windows8</span>. Supports unlimited categories and each category can have unlimited content. When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a> or to open a new webpage. The lightbox has support for <span class="myBold">image</span>, <span class="myBold">video</span> (mp4), <span class="myBold">audio</span> (mp3), <span class="myBold">Vimeo</span>, <span class="myBold">YouTube</span>, <span class="myBold">iFrame</span>, <span class="myBold">Google maps</span> and <span class="myBold">flash</span>. Infinite Grid Pro has high performance using <span class="myBold">OOP</span> code and the latest <span class="myBold">CSS3</span> techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+			
+			<p class="whatIsInP">The way Infinite Grid Pro is handling the thumbnails is as follows. Once the grid is initialized the first available thumbnails from the current category are added in order from left to right, after a drag or zoom is performed using a complex mathematical algorithm new thumbnails are added randomly, the new added thumbnails will remember their place in the grid no matter in which direction the grid is dragged and at the same time <span class="myBold">IGP</span> is not allowing the same thumbnail to be repeated in it's close proximity.</p>
+		</div>
+		
+		<p class="headerTextGrid"><span class="white">Infinite Grid Pro</span> main features:</p>
+		<div id="mainFeatureTableHolder">
+			<table>
+				<tr>
+					<td id="col1" class="fistTd">
+						<p><span class="dark">+ </span>Responsive layout and customizable color theme.</p>
+						<p><span class="dark">+ </span>Mobile and desktop optimized (<a href="https://www.youtube.com/watch?v=gwdxgoHxHeE" target="_blank">Android demo</a> or <a href="https://www.youtube.com/watch?v=sl-XvtllVCo" target="_blank">Ipad demo</a>).</p>
+						<p><span class="dark">+ </span>Multiple display types, <span class="myBold">responsive</span>, <span class="myBold">fixed</span>, <span class="myBold">fullscreen</span>, <span class="myBold">fluid width</span>  and <span class="myBold">after parent</span>.</p>
+						<p><span class="dark">+ </span>Support for <span class="myBold">multiple categories</span>.</p>
+						<p><span class="dark">+ </span>Optional <span class="myBold">drop down categories menu</span>, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+						<p><span class="dark">+ </span><span class="myBold">Custom press thumbnail action</span>. When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great revolution lightbox, or to open a new webpage.</p>
+						<p><span class="dark">+ </span> <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">Revolution lightbox</a></span> used to display multimedia content. When a thumbnail is clicked the lightbox can be used to display <span class="myBold">image</span>, <span class="myBold">video</span> (mp4), <span class="myBold">audio</span> (mp3), <span class="myBold">Vimeo</span>, <span class="myBold">YouTube</span>, <span class="myBold">iFrame</span>, <span class="myBold">Google maps</span> or <span class="myBold">flash</span>.</p>
+						<p><span class="dark">+ </span>Optional <span class="myBold">visited thumbnails</span>, this allows thumbnails that were clicked or viewed with the ligthbox to have reduced opacity, this way the user can easily see which content was viewed.</p>
+					</td>
+					<td class="secondTd"></td>
+					<td id="col2">
+						<p><span class="dark">+ </span><span class="myBold">Customizable drag</span>, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+						<p><span class="dark">+ </span>Two types of thumbnail transition animation (opacity or motion).</p>
+						<p><span class="dark">+ </span><span class="myBold">Auto scroll</span>, the grid can be set to auto scroll, the auto scroll direction and speed are customizable.</p>
+						<p><span class="dark">+ </span>Optional <span class="myBold">grid zoom</span>.</p>
+						<p><span class="dark">+ </span>Customizable thumbnails interactivity (thumbnails can be set to do nothing when clicked).</p>
+						<p><span class="dark">+ </span><span class="myBold">Randomizable categories</span>, each playlist can load and show thumbnails in random order or in normal order.</p>
+						<p><span class="dark">+ </span>Optional <span class="myBold">thumbnails overlay</span>, also a specific color can be set individually for each thumbnail overlay.</p>
+						<p><span class="dark">+ </span>Optional <span class="myBold">thumbnails multimedia icon</span>.</p>
+						<p><span class="dark">+ </span>Optional <span class="myBold">help screen</span>.</p>
+						<p><span class="dark">+ </span><span class="myBold">Two skins</span> included along with the psd files.</p>
+						<p><span class="dark">+ </span>Detailed <span class="myBold">documentation</span> and sample files included.</p>
+					</td>
+				<tr>
+			</table>
+		</div>
+	</div>
+	
+	<div id="specialNotesMainHolder">
+		<p class="specialNotesHeaderText">Special notes:</p>
+		<div id="specialNotes">
+			<p class="pWithMarginTop"><span class="whitePluse">+ </span>When using the video or audio player on a mobile browser the autoplay is set to false, also the volume bar is disabled.</p>
+			<p class="pWithMarginTop"><span class="whitePluse">+ </span>The skin is constructed from png files.</p>
+			<p id="lastP"><span class="whitePluse">+ </span>For support or customizations please contact us <a href="mailto:contact@webdesign-flash.ro">here</a>.</p>
+		</div>
+	</div>
+	
+	
+	<div id="myPlaylist" style="display:none">
+		<ul data-category-name="Category 1 (image gallery)">
+			<li data-thumbnail-path="content/media/thumbnails/1.jpg" data-url="content/media/images/1.jpg" >
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+					<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/2.jpg" data-url="content/media/images/2.jpg">
+				<div>
+					<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+					<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/3.jpg" data-url="content/media/images/3.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+					<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/4.jpg" data-url="content/media/images/4.jpg">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/5.jpg" data-url="content/media/images/5.jpg">
+				<div>
+					<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+					<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/6.jpg" data-url="content/media/images/6.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for four display types</p>
+					<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/7.jpg" data-url="content/media/images/7.jpg">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+					<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/8.jpg" data-url="content/media/images/8.jpg">
+				<div>
+					<p class="gallery1DecHeader">Customizable drag</p>
+					<p class="gallery1DescP">Customizable drag, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/9.jpg" data-url="content/media/images/9.jpg">
+				<div>
+					<p class="gallery1DecHeader">Auto scroll</p>
+					<p class="gallery1DescP">Auto scroll, the grid can be set to auto scroll, the auto scroll direction and speed are customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/10.jpg" data-url="content/media/images/10.jpg">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+					<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/11.jpg" data-url="content/media/images/11.jpg">
+				<div>
+					<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+					<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/12.jpg" data-url="content/media/images/12.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+					<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/13.jpg" data-url="content/media/images/13.jpg">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/14.jpg" data-url="content/media/images/14.jpg">
+				<div>
+					<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+					<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/15.jpg" data-url="content/media/images/15.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for four display types</p>
+					<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/16.jpg" data-url="content/media/images/16.jpg">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+					<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/17.jpg" data-url="content/media/images/17.jpg">
+				<div>
+					<p class="gallery1DecHeader">Customizable drag</p>
+					<p class="gallery1DescP">Customizable drag, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/18.jpg" data-url="content/media/images/18.jpg">
+				<div>
+					<p class="gallery1DecHeader">Auto scroll</p>
+					<p class="gallery1DescP">Auto scroll, the grid can be set to auto scroll, the auto scroll direction and speed are customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/19.jpg" data-url="content/media/images/19.jpg">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+					<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/20.jpg" data-url="content/media/images/20.jpg">
+				<div>
+					<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+					<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/21.jpg" data-url="content/media/images/21.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+					<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/22.jpg" data-url="content/media/images/22.jpg">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/23.jpg" data-url="content/media/images/23.jpg">
+				<div>
+					<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+					<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/24.jpg" data-url="content/media/images/24.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for four display types</p>
+					<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/25.jpg" data-url="content/media/images/25.jpg">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+					<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/26.jpg" data-url="content/media/images/26.jpg">
+				<div>
+					<p class="gallery1DecHeader">Customizable drag</p>
+					<p class="gallery1DescP">Customizable drag, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/27.jpg" data-url="content/media/images/27.jpg">
+				<div>
+					<p class="gallery1DecHeader">Auto scroll</p>
+					<p class="gallery1DescP">Auto scroll, the grid can be set to auto scroll, the auto scroll direction and speed are customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/28.jpg" data-url="content/media/images/28.jpg">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+					<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/29.jpg" data-url="content/media/images/29.jpg">
+				<div>
+					<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+					<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/30.jpg" data-url="content/media/images/30.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+					<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/31.jpg" data-url="content/media/images/31.jpg">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/32.jpg" data-url="content/media/images/32.jpg">
+				<div>
+					<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+					<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/33.jpg" data-url="content/media/images/33.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for four display types</p>
+					<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/34.jpg" data-url="content/media/images/34.jpg">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+					<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/35.jpg" data-url="content/media/images/35.jpg">
+				<div>
+					<p class="gallery1DecHeader">Customizable drag</p>
+					<p class="gallery1DescP">Customizable drag, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/36.jpg" data-url="content/media/images/36.jpg">
+				<div>
+					<p class="gallery1DecHeader">Auto scroll</p>
+					<p class="gallery1DescP">Auto scroll, the grid can be set to auto scroll, the auto scroll direction and speed are customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/37.jpg" data-url="content/media/images/37.jpg">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+					<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/38.jpg" data-url="content/media/images/38.jpg">
+				<div>
+					<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+					<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/39.jpg" data-url="content/media/images/39.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+					<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/40.jpg" data-url="content/media/images/40.jpg">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/41.jpg" data-url="content/media/images/41.jpg">
+				<div>
+					<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+					<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/42.jpg" data-url="content/media/images/42.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for four display types</p>
+					<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/43.jpg" data-url="content/media/images/43.jpg">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+					<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/44.jpg" data-url="content/media/images/44.jpg">
+				<div>
+					<p class="gallery1DecHeader">Customizable drag</p>
+					<p class="gallery1DescP">Customizable drag, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/45.jpg" data-url="content/media/images/45.jpg">
+				<div>
+					<p class="gallery1DecHeader">Auto scroll</p>
+					<p class="gallery1DescP">Auto scroll, the grid can be set to auto scroll, the auto scroll direction and speed are customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/46.jpg" data-url="content/media/images/46.jpg">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+					<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/47.jpg" data-url="content/media/images/47.jpg">
+				<div>
+					<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+					<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/48.jpg" data-url="content/media/images/48.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+					<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/49.jpg" data-url="content/media/images/49.jpg">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/50.jpg" data-url="content/media/images/50.jpg">
+				<div>
+					<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+					<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/51.jpg" data-url="content/media/images/51.jpg">
+				<div>
+					<p class="gallery1DecHeader">Support for four display types</p>
+					<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+				</div>
+			</li>
+		</ul>
+		
+		<ul data-category-name="Category 2 (multimedia content)" style="display:none">
+			<li data-thumbnail-path="content/media/thumbnails/image1.jpg" data-url="content/media/images/1.jpg">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+					<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video1.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+					<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio1.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/youtube1.jpg" data-url="https://www.youtube.com/watch?v=9bZkp7q19f0" data-width="1000" data-height="550">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/vimeo1.jpg" data-url="http://vimeo.com/50747914" data-width="900" data-height="550">
+				<div>
+					<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+					<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/flash1.jpg" data-url="content/media/flash/fwd.swf" data-width="800" data-height="500">
+				<div>
+					<p class="gallery1DecHeader">Support for four display types</p>
+					<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/link1.jpg" data-url="link:http://www.webdesign-flash.ro" data-target="_blank">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+					<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/iframe1.jpg" data-url="http://www.webdesign-flash.ro/iframe.html" data-width="900" data-height="650">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+					<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/maps1.jpg" data-url="https://www.google.com/maps/embed/v1/place?q=castelul%20hunedoara&key=..." data-width="1100", data-height="650">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio2.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio3.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio4.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video2.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video3.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+					<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video4.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Support for four display types</p>
+					<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio5.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video5.jpg"  data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Customizable drag</p>
+					<p class="gallery1DescP">Customizable drag, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio6.jpg"  data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Auto scroll</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video6.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+					<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/image2.jpg" data-url="content/media/images/2.jpg">
+				<div>
+					<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+					<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video7.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+					<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio7.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/youtube2.jpg" data-url="https://www.youtube.com/watch?v=9bZkp7q19f0" data-width="1000" data-height="550">
+				<div>
+					<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+					<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/vimeo2.jpg" data-url="http://vimeo.com/50747914" data-width="900" data-height="550">
+				<div>
+					<p class="gallery1DecHeader">Support for four display types</p>
+					<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/flash2.jpg" data-url="content/media/flash/fwd.swf" data-width="800" data-height="500">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+					<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/link2.jpg" data-url="link:http://www.webdesign-flash.ro" data-target="_blank">
+				<div>
+					<p class="gallery1DecHeader">Customizable drag</p>
+					<p class="gallery1DescP">Customizable drag, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/iframe2.jpg" data-url="http://www.webdesign-flash.ro/iframe.html" data-width="900" data-height="650">
+				<div>
+					<p class="gallery1DecHeader">Auto scroll</p>
+					<p class="gallery1DescP">Auto scroll, the grid can be set to auto scroll, the auto scroll direction and speed are customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/maps2.jpg" data-url="https://www.google.com/maps/embed/v1/place?q=castelul%20hunedoara&key=..." data-width="1100", data-height="650">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio8.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio9.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio10.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video8.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+					<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video9.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video10.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Customizable drag</p>
+					<p class="gallery1DescP">Customizable drag, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio11.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Auto scroll</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video11.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+					<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio12.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+					<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video12.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+					<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio13.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video13.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+					<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio14.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Support for four display types</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video14.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio15.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+				</div>
+			</li>
+				<li data-thumbnail-path="content/media/thumbnails/video15.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Customizable drag</p>
+					<p class="gallery1DescP">Customizable drag, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/audio16.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Auto scroll</p>
+				</div>
+			</li>
+			<li data-thumbnail-path="content/media/thumbnails/video16.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+					<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+				</div>
+			</li>
+		</ul>
+		
+	</div>
+
+	</body>
+</html>

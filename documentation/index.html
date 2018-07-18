@@ -1,0 +1,859 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Infinite Grid Pro Documentation</title>
+	
+	<script type="text/javascript" src="scripts/shCore.js"></script>
+	<script type="text/javascript" src="scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="scripts/shBrushXml.js"></script>
+	
+	<link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+	<link rel="stylesheet" href="assets/blueprint-css/fwd.css" type="text/css">
+</head>
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Infinite Grid Pro &rdquo; Documentation by FWDesign</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;<span class="center alt">Infinite Grid Pro</span>&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 01/08/2014<br>
+					By:© FWD (Future Web Design)<br>
+					Email: <a href="mailto:contact@webdesign-flash.ro">contact@webdesign-flash.ro</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing our script. If you have any questions that are beyond the scope of this help file, please feel free to email via our email. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#important">IMPORTANT NOTES - read this before anything else</a></li>
+			<li><a href="#prepThumbsAndImages">Preparing thumbnails and images</a></li>
+			<li><a href="#installation">Infinite Grid Pro installation</a></li>
+			<li><a href="#config">Constructor parameters</a></li>
+			<li><a href="#html">Setup categories / playlists</a></li>
+			<li><a href="#share">Setup Facebook share button</a></li>
+			<li><a href="#api">API specifications</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+		</ol>
+	
+		<hr>
+		<h3 id="important"><strong>A) IMPORTANT NOTES - make sure you read this!</strong> - <a href="#toc">top</a></h3>
+		<p>Please note that the IGP installation and configuration is not complicated but because it has a lot of customizable settings it might seem complicated, please go through the entire documentation before trying to install it into your own page. Basically what it must be done is to copy some html and js code from the examples we provided and paste it into your own html page and of course add your own content.</p>
+		<p>If you want to use video or audio only mp4 or mp3 files are required. It will work in all browsers on desktop machines or mobile devices, this is extremely important because there is no need to create multiple audio or video formats for browsers that don't support mp4 or mp3, also please note that the mp4 and mp3 video aud audio formats are recommended and used by all major browsers distributors like Google, Microsoft, Apple, Mozilla etc.!</p>
+		<p>The server is character case sensitive so make sure that the IGP settings are identical to those from the provided examples.</p>
+		<p>IGP requires a minimum of 9 thumbnails in each category.</p>
+		<p>In the examples provided as reference we have used only 9 images per category to keep it simple and understandable this is why the thumbnails are repeating so often, the more thumbnails are added in the playlist the less there is a chance of the same thumbnail to repeat.</p>
+		<p>When something is wrong with a IGP action a red info box with the problem description will appear at the window top left corner, please note that this box is there to help you understand the problem, for example if an image is not found the box will appear and inform you about the problem. The box will hide when navigating to another item.</p>
+		<p>The IGP skin is constructed from png images. We have included psd files just in case you want to modify the skin. If you want a different skin the .png files must be modified. We have a great designer in our team so if you need a custom skin please contact us!</p>
+		
+		<h3 id="prepThumbsAndImages"><strong>B) Preparing thumbnails and images!</strong> - <a href="#toc">top</a></h3>
+		<p>Coding this grid was a challenge, first because the logic behind the code is complex and second and the most difficult part is that IGP is pushing the browser capabilities to its limits, it was extremely difficult to make it work. We strongly advice to use the same thumbnail and image settings and sizes that we've used. Inside the IGP constructor set the <span class="boldLi">thumbnailMaxWidth:210</span> and  <span class="boldLi">thumbnailMaxHeight:190</span>, these parameters represent the maximum initial thumbnails width and height when the thumbnails are first showed and the scale is 1 (no scale). Make sure that your thumbnails images width is 308px and the height is 206px, of course they can be modified but if the thumbnails width or height are higher then 320px in Chrome some rendering glitches can appear if there are too many image pixels to render, the other browsers are working fine no matter what sizes are used. The large images the ones that are showed using the lightbox make sure that they are not larger than 1500px in width or height, again you can use higher resolution images but it will make the grid slower.</p>
+		
+		<p>If you want to use your own custom size thumbnails they should be saved as follow, first set the <span class="boldLi">thumbnailMaxWidth</span> and <span class="boldLi">thumbnailMaxHeight</span> parameters to your desired thumbnails size, based on this the thumbnails images must be saved as follows, width = <span class="boldLi">thumbnailMaxWidth * 1.4</span> and height = <span class="boldLi">thumbnailMaxHeight * 1.4</span> (this parameters represents the maximum initial thumbnails width and height when the thumbnails are first showed and the scale is 1 (no scale)).</p>
+		
+		<h3 id="installation"><strong>C) Infinite Grid Pro installation</strong> - <a href="#toc">top</a></h3>
+		<p>IGP has multiple display types (fluid width, responsive, fixed, fullscreen, after parent), each display type is explained in detail below.</p>
+		<h4><strong>Responsive installation</strong></h3>
+		<p>In the download files there is a start folder and in this folder there are example html files for each display type. You can use one of them to copy and paste the required html and js code based on the skin and display type that you need. In this tutorial we have used the <span class="boldLi">responsive-minimal-skin.html</span> file.</p>
+		<ul>
+			<li>Copy and paste the content folder and the java folder into the same folder with your html file, inside the content folder there are other folders and files which are self explanatory. Keep only the skin folder that you need to save space on the server.</li>
+			<li>Open <span class="boldLi">responsive-minimal-skin.html</span> with a text editor as reference.</li>
+			<li>The javascript and CSS files must be imported in the head section of your html.</li>
+			<pre class="brush: js; html-script: true, class-name: 'negativeLeftMarginsHTML'">
+				<link rel="stylesheet" type="text/css"  href="content/global.css"/>
+				<script type="text/javascript" src="java/FWDIGP.js"></script></pre>
+			<li>You need a div into which IGP will be added as a child, so create a div and set an id for it, the id is important because it is passed in the IGP constructor, make sure it is unique. The IGP is responsive as follows, the width and height will adapt based on the <span class="boldLi">maxWidth</span> and <span class="boldLi">maxHeight</span> properties specified in the constructor, if the page is resized and the parent div width is smaller then the <span class="boldLi">maxWidth</span> property IGP will adapt it's size accordingly. If <span class="boldLi">autoScale</span> property is set to yes the grid will modify it's height to keep a correct aspect ratio.</li>
+			<pre class="brush: js; html-script: true, class-name: 'negativeLeftMarginsHTML'">
+				<div id="myDiv"></div></pre>
+			<li>Next step is to set up the categories / playlists, to do this copy and paste the <span class="boldLi">div</span> element with the id <span class="boldLi">myPlaylist</span> into the body element, the id is passed to the IGP parameter <span class="boldLi">playlistId:</span>myPlaylist. For more info about how to create categories / playlists please read <a href="#html">Setup categories / playlists</a>.</li>
+			<pre class="brush: js; html-script: true, class-name: 'negativeLeftMargins'">
+			<div id="myPlaylist" style="display:none">
+				<ul data-category-name="Category 1 (image gallery)">
+					<li data-thumbnail-path="content/media/thumbnails/1.jpg" data-url="content/media/images/1.jpg" >
+						<div>
+							<p class="gallery1DecHeader">Infinite Grid Pro</p>
+							<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/2.jpg" data-url="content/media/images/2.jpg">
+						<div>
+							<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+							<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/3.jpg" data-url="content/media/images/3.jpg">
+						<div>
+							<p class="gallery1DecHeader">Support for unlimited categories!</p>
+							<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/4.jpg" data-url="content/media/images/4.jpg">
+						<div>
+							<p class="gallery1DecHeader">Customizable thumbnails action</p>
+							<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/5.jpg" data-url="content/media/images/5.jpg">
+						<div>
+							<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+							<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/6.jpg" data-url="content/media/images/6.jpg">
+						<div>
+							<p class="gallery1DecHeader">Support for four display types</p>
+							<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/7.jpg" data-url="content/media/images/7.jpg">
+						<div>
+							<p class="gallery1DecHeader">Optional drop down categories menu</p>
+							<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/8.jpg" data-url="content/media/images/8.jpg">
+						<div>
+							<p class="gallery1DecHeader">Customizable drag</p>
+							<p class="gallery1DescP">Customizable drag, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/9.jpg" data-url="content/media/images/9.jpg">
+						<div>
+							<p class="gallery1DecHeader">Auto scroll</p>
+							<p class="gallery1DescP">Auto scroll, the grid can be set to auto scroll, the auto scroll direction and speed are customizable.</p>
+						</div>
+					</li>
+				</ul>
+				
+				<ul data-category-name="Category 2 (multimedia content)" style="display:none">
+					<li data-thumbnail-path="content/media/thumbnails/image1.jpg" data-url="content/media/images/1.jpg">
+						<div>
+							<p class="gallery1DecHeader">Infinite Grid Pro</p>
+							<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/video1.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+						<div>
+							<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+							<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/audio1.jpg" data-url="content/media/audio/audio.mp3">
+						<div>
+							<p class="gallery1DecHeader">Support for unlimited categories!</p>
+							<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/youtube1.jpg" data-url="https://www.youtube.com/watch?v=9bZkp7q19f0" data-width="1000" data-height="550">
+						<div>
+							<p class="gallery1DecHeader">Customizable thumbnails action</p>
+							<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/vimeo1.jpg" data-url="http://vimeo.com/50747914" data-width="900" data-height="550">
+						<div>
+							<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+							<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/flash1.jpg" data-url="content/media/flash/fwd.swf" data-width="800" data-height="500">
+						<div>
+							<p class="gallery1DecHeader">Support for four display types</p>
+							<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/link1.jpg" data-url="link:http://www.webdesign-flash.ro" data-target="_blank">
+						<div>
+							<p class="gallery1DecHeader">Optional drop down categories menu</p>
+							<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/iframe1.jpg" data-url="http://www.webdesign-flash.ro/iframe.html" data-width="900" data-height="650">
+						<div>
+							<p class="gallery1DecHeader">Optional drop down categories menu</p>
+							<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/maps1.jpg" data-url="https://www.google.com/maps/embed/v1/place?q=castelul%20hunedoara&key=..." data-width="1100", data-height="650">
+						<div>
+							<p class="gallery1DecHeader">Customizable thumbnails action</p>
+							<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+						</div>
+					</li>
+				</ul>
+			</div></pre>
+			<li>Next step is to initialize IGP with javascript, in the head section of your html page add the code from below. Please note that all parameters are described in the <a href="#config">Constructor parameters</a> section.</li>
+			<pre class="brush: js; class-name: 'negativeLeftMargins'">
+		<script type="text/javascript">
+			FWDRLUtils.onReady(function(){
+				new FWDIGP({
+					//main settings 
+					rightClickContextMenu:"default",
+					instanceName:"myIGP",
+					parentId:"myDiv",
+					mainFolderPath:"content",
+					skinPath:"minimal-skin",
+					playlistId:"myPlaylist",
+					displayType:"fullscreen",
+					dragDirection:"both",
+					autoScrollDirection:"left",
+					thumbnailTransitionType:"opcacity",
+					allCategoriesLabel:"All Categories (mixed)",
+					showAllCategories:"yes",
+					autoScale:"yes",
+					autoScroll:"no",
+					enableVisitedThumbnails:"no",
+					addZoomSupport:"yes",
+					addDragAndSwipeSupport:"yes",
+					disableThumbnailInteractivity:"no",
+					randomizeAllCategories:"yes",
+					randomizeCategories:"no",
+					showThumbnailOverlay:"yes",
+					showThumbnailIcon:"no",
+					showHelpScreen:"no",
+					startAtCategory:1,
+					maxWidth:940,
+					maxHeight:600,
+					thumbnailMaxWidth:210,
+					thumbnailMaxHeight:190,
+					maxScale:1.6,
+					minScale:.8,
+					autoScrollSpeed:0,
+					thumbnailOverlayOpacity:.7,
+					helpScreenOpacity:.3,
+					backgroundColor:"#000000",
+					thumbnailBackgroundColor:"#111111",
+					thumbnailOverlayColor:"#000000",
+					helpScreenBackgroundColor:"#FFFFFF",
+					//combobox settings
+					selectLabel:"SELECT CATEGORIES",
+					comboBoxPosition:"topRight",
+					showComboBox:"yes",
+					comboBoxHorizontalMargins:12,
+					comboBoxVerticalMargins:12,
+					comboBoxCornerRadius:0,
+					selctorBackgroundNormalColor:"#FFFFFF",
+					selctorBackgroundSelectedColor:"#000000",
+					selctorTextNormalColor:"#000000",
+					selctorTextSelectedColor:"#FFFFFF",
+					buttonBackgroundNormalColor:"#FFFFFF",
+					buttonBackgroundSelectedColor:"#000000",
+					buttonTextNormalColor:"#000000",
+					buttonTextSelectedColor:"#FFFFFF",
+					comboBoxShadowColor:"#000000",
+					//ligtbox settings (optional)
+					facebookAppId:"213684265480896",
+					buttonsAlignment:"in",
+					itemBoxShadow:"none",
+					descriptionWindowAnimationType:"opacity",
+					descriptionWindowPosition:"bottom",
+					slideShowAutoPlay:"no",
+					addKeyboardSupport:"yes",
+					showCloseButton:"yes",
+					showFacebookButton:"yes",
+					showZoomButton:"yes",
+					showSlideShowButton:"yes",
+					showSlideShowAnimation:"yes",
+					showNextAndPrevButtons:"yes",
+					showNextAndPrevButtonsOnMobile:"yes",
+					showDescriptionButton:"yes",
+					showDescriptionByDefault:"no",
+					videoShowFullScreenButton:"yes",
+					videoAutoPlay:"yes",
+					nextVideoOrAudioAutoPlay:"yes",
+					videoLoop:"no",
+					audioAutoPlay:"no",
+					audioLoop:"no",
+					backgroundOpacity:.9,
+					descriptionWindowBackgroundOpacity:.95,
+					buttonsHideDelay:3,
+					slideShowDelay:4,
+					defaultItemWidth:640,
+					defaultItemHeight:480,
+					itemOffsetHeight:50,
+					spaceBetweenButtons:1,
+					buttonsOffsetIn:2,
+					buttonsOffsetOut:5,
+					itemBorderSize:0,
+					itemBorderRadius:0,
+					itemBackgroundColor:"#333333",
+					itemBorderColor:"#333333",
+					lightBoxBackgroundColor:"#000000",
+					descriptionWindowBackgroundColor:"#FFFFFF",
+					videoPosterBackgroundColor:"#0099FF",
+					videoControllerBackgroundColor:"#FFFFFF",
+					audioControllerBackgroundColor:"#FFFFFF",
+					timeColor:"#000000"
+				});
+			});
+		</script></pre>
+        </ul>   
+		<p>This is how IGP is installed in a HTML page, please read the  <a href="#config">Constructor parameters</a> section, it will explain all settings in details.</p>
+		<h4><strong>Fluid width installation</strong></h3>
+		<p>This display type is resizing IGP width to fill the available browser width and keep the height fixed or fluid based on the <span class="boldLi">maxWidth</span> and <span class="boldLi">autoScale</span> properties. To use this display type follow the same installation steps from <a href="#installation">Responsive installation</a> section, the only difference is the <span class="boldLi">displayType</span> property which must be set to <span class="boldLi">fluidWidth</span> like this <span class="boldLi">displayType:fluidWidth</span>. In the start folder there are two html files  whose names are starting with <span class="boldLi">fluid-width</span>, you can use them as reference.</p>
+		
+		<h4><strong>Fullscreen installation</strong></h3>
+		<p>This display type is resizing IGP width and height to fill the available browser viewport. To use this display type follow the same installation steps from <a href="#installation">Responsive installation</a> section, the only difference is the <span class="boldLi">displayType</span> property which must be set to <span class="boldLi">fullScreen</span> like this <span class="boldLi">displayType:fullScreen</span>. In the start folder there are two html files  whose names are starting with <span class="boldLi">fullscreen</span>, you can use them as reference.</p>
+		
+		<h4><strong>Atter parent installation</strong></h3>
+		<p>This display type is resizing IGP width and height to fill the available parent div width and height, this is really useful if you have a responsive div and you want IGP to resize based on it's size. To use this display type follow the same installation steps from <a href="#installation">Responsive installation</a> section, the only difference is the <span class="boldLi">displayType</span> property which must be set to <span class="boldLi">afterParent</span> like this <span class="boldLi">displayType:afterParent</span>. In the start folder there are two html files whose names are starting with <span class="boldLi">after-parent</span>, you can use them as reference.</p>
+		
+		<h3 id="config"><strong>D) Constructor parameters</strong> - <a href="#toc">top</a></h3>
+		<p>Please open <span class="boldLi">responsive-minimal-skin.html</span> with a text editor as reference. These parameters represents the possible setting of IGP, they are all described below.</p>
+		<pre class="brush: js; class-name: 'negativeMargins'">
+		<script type="text/javascript">
+			FWDRLUtils.onReady(function(){
+				new FWDIGP({
+					//main settings 
+					rightClickContextMenu:"default",
+					instanceName:"myIGP",
+					parentId:"myDiv",
+					mainFolderPath:"content",
+					skinPath:"minimal-skin",
+					playlistId:"myPlaylist",
+					displayType:"fullscreen",
+					dragDirection:"both",
+					autoScrollDirection:"left",
+					thumbnailTransitionType:"opcacity",
+					allCategoriesLabel:"All Categories (mixed)",
+					showAllCategories:"yes",
+					autoScale:"yes",
+					autoScroll:"no",
+					enableVisitedThumbnails:"no",
+					addZoomSupport:"yes",
+					addDragAndSwipeSupport:"yes",
+					disableThumbnailInteractivity:"no",
+					randomizeAllCategories:"yes",
+					randomizeCategories:"no",
+					showThumbnailOverlay:"yes",
+					showThumbnailIcon:"no",
+					showHelpScreen:"no",
+					startAtCategory:1,
+					maxWidth:940,
+					maxHeight:600,
+					thumbnailMaxWidth:210,
+					thumbnailMaxHeight:190,
+					maxScale:1.6,
+					minScale:.8,
+					autoScrollSpeed:0,
+					thumbnailOverlayOpacity:.7,
+					helpScreenOpacity:.3,
+					backgroundColor:"#000000",
+					thumbnailBackgroundColor:"#111111",
+					thumbnailOverlayColor:"#000000",
+					helpScreenBackgroundColor:"#FFFFFF",
+					//combobox settings
+					selectLabel:"SELECT CATEGORIES",
+					comboBoxPosition:"topRight",
+					showComboBox:"yes",
+					comboBoxHorizontalMargins:12,
+					comboBoxVerticalMargins:12,
+					comboBoxCornerRadius:0,
+					selctorBackgroundNormalColor:"#FFFFFF",
+					selctorBackgroundSelectedColor:"#000000",
+					selctorTextNormalColor:"#000000",
+					selctorTextSelectedColor:"#FFFFFF",
+					buttonBackgroundNormalColor:"#FFFFFF",
+					buttonBackgroundSelectedColor:"#000000",
+					buttonTextNormalColor:"#000000",
+					buttonTextSelectedColor:"#FFFFFF",
+					comboBoxShadowColor:"#000000",
+					//ligtbox settings (optional)
+					facebookAppId:"213684265480896",
+					buttonsAlignment:"in",
+					itemBoxShadow:"none",
+					descriptionWindowAnimationType:"opacity",
+					descriptionWindowPosition:"bottom",
+					slideShowAutoPlay:"no",
+					addKeyboardSupport:"yes",
+					showCloseButton:"yes",
+					showFacebookButton:"yes",
+					showZoomButton:"yes",
+					showSlideShowButton:"yes",
+					showSlideShowAnimation:"yes",
+					showNextAndPrevButtons:"yes",
+					showNextAndPrevButtonsOnMobile:"yes",
+					showDescriptionButton:"yes",
+					showDescriptionByDefault:"no",
+					videoShowFullScreenButton:"yes",
+					videoAutoPlay:"yes",
+					nextVideoOrAudioAutoPlay:"yes",
+					videoLoop:"no",
+					audioAutoPlay:"no",
+					audioLoop:"no",
+					backgroundOpacity:.9,
+					descriptionWindowBackgroundOpacity:.95,
+					buttonsHideDelay:3,
+					slideShowDelay:4,
+					defaultItemWidth:640,
+					defaultItemHeight:480,
+					itemOffsetHeight:50,
+					spaceBetweenButtons:1,
+					buttonsOffsetIn:2,
+					buttonsOffsetOut:5,
+					itemBorderSize:0,
+					itemBorderRadius:0,
+					itemBackgroundColor:"#333333",
+					itemBorderColor:"#333333",
+					lightBoxBackgroundColor:"#000000",
+					descriptionWindowBackgroundColor:"#FFFFFF",
+					videoPosterBackgroundColor:"#0099FF",
+					videoControllerBackgroundColor:"#FFFFFF",
+					audioControllerBackgroundColor:"#FFFFFF",
+					timeColor:"#000000"
+				});
+			});
+		</script></pre>
+		<br>
+		//main settings
+		<ul>
+			<li><span class="boldLi">rightClickContextMenu</span>:"default" - this can be developer, default or disabled. We would appreciate it if you can leave this feature set to developer.</li>
+			<li><span class="boldLi">instanceName</span>:"myIGP" - represents the IGP instance name, this is used to access API methods.</li>
+			<li><span class="boldLi">parentId</span>:"myDiv" - represents the div into which IGP will be added.</li>
+			<li><span class="boldLi">mainFolderPath</span>:"content" - The main folder path. This folder contains some important files like the skins, images, audio,video flash players, etc.In this folder you need to add your content (images, videos, etc), please note that your content can be added outside this folder but is a good idea to keep everything centralized.</li>
+			<li><span class="boldLi">skinPath</span>:"minimal-skin" - The skin path, the name of the folder that contains the skin, this folder must always be inside the <span class="boldLi">mainFolderPath</span> folder.</li>
+			<li><span class="boldLi">playlistId</span>:"myPlaylist" - The IGP categories / playlist id, for more info read <a href="#html">Setup categories / playlists</a>.</li>
+			<li><span class="boldLi">displayType</span>:"responsive" - this can be <span class="boldLi">fluidWidth</span>, <span class="boldLi">responsive</span>, <span class="boldLi">fullScreen</span> or <span class="boldLi">afterParent</span>.</li>
+			<li><span class="boldLi">dragDirection</span>:"both" - represents the grid drag direction, it can <span class="boldLi">both</span>, <span class="boldLi">horizontal</span>, <span class="boldLi">vertical</span> or <span class="boldLi">none</span> </li>
+			<li><span class="boldLi">autoScrollDirection</span>:"left" - represents the grid autoscroll direction, it can <span class="boldLi">down</span>, <span class="boldLi">up</span>, <span class="boldLi">left</span> or <span class="boldLi">right</span>.</li>
+			<li><span class="boldLi">thumbnailTransitionType</span>:"opacity" - represents the thumbnail image transition type when it first appears, it can <span class="boldLi">opacity</span> or <span class="boldLi">motion</span>.</li>
+			<li><span class="boldLi">allCategoriesLabel</span>:"All Categories (mixed)" - represents the all categories playlist name.</li>
+			<li><span class="boldLi">showAllCategories</span>:"yes" - this can be yes or no, if you have more then one category and you want an extra category with all other categories mixed in then set this to yes otherwise set it to no.</li>
+			<li><span class="boldLi">autoScale</span>:"yes" - this can be yes or no. If set to yes the IGP height will always be proportional to the IGP width, if set to no the height will be fixed based on the <span class="boldLi">maxHeight</span> property.</li>
+			<li><span class="boldLi">autoScroll</span>:"yes" - this can be yes or no. If set to yes the IGP will auto scroll in the direction set in the <span class="boldLi">autoScrollDirection</span>.</li>
+			<li><span class="boldLi">enableVisitedThumbnails</span>:"no" - this can be yes or no. If set to yes the the thumbnails visited will have a reduced opacity this way the user can see which thumbnails content was viewed.</li>
+			<li><span class="boldLi">keepThumbnailsOriginalSizeOnGridStart</span>:"no" - this can be yes or no. If set to yes the the when the grid is initialized the thumbnails will have the width equal to <span class="boldLi">maxWidth</span> and height equal to <span class="boldLi">maxHeight</span>. If set to no when the grid is initialized the thumbnails will be resized to fill the entire grid without cutting the thumbnails, this means that they will have a smaller or equal size then <span class="boldLi">maxWidth</span> and <span class="boldLi">maxHeight</span>.</li>
+			<li><span class="boldLi">addZoomSupport</span>:"yes" - this can be yes or no. Enable or disable zoom on desktop machines and pinch & zoom on mobile devices.</li>
+			<li><span class="boldLi">addDragAndSwipeSupport</span>:"yes" - this can be yes or no. Enable or disable drag and swipe.</li>
+			<li><span class="boldLi">disableThumbnailInteractivity</span>:"no" - this can be yes or no. Disable or enable thumbnails interactivity, if is set to yes the thumbnail can't be clicked or touched to open the lightbox or a link.</li>
+			<li><span class="boldLi">randomizeAllCategories</span>:"no" - this can be yes or no. If this is set to yes the all categories will be randomized.</li>
+			<li><span class="boldLi">randomizeCategories</span>:"no" - this can be yes or no. If this is set to yes all categories with the exception of the main category (all categories)  will be randomized.</li>
+			<li><span class="boldLi">showThumbnailOverlay</span>:"yes" - this can be yes or no. Show or hide the thumbnail overlay when a thumbnail is hovered.</li>
+			<li><span class="boldLi">showThumbnailIcon</span>:"yes" - this can be yes or no. Show or hide the thumbnail small media icon when a thumbnail is hovered.</li>
+			<li><span class="boldLi">showHelpScreen</span>:"yes" - this can be yes or no. Show or hide the intro help screen that appears over IGP.</li>
+			<li><span class="boldLi">startAtCategory</span>:1 - an integer that represents the category first category number that will be loaded, the counting starts from 0 (zero).</li>
+			<li><span class="boldLi">maxWidth</span>:1 - an integer that represents the category first category number that will be loaded, the counting starts from 0 (zero).</li>
+			<li><span class="boldLi">maxWidth</span>:750 - a number that represents the IGP maximum width in pixels, think of this property as it would be the max-width css property (only applies if the  <span class="boldLi">displayType</span> is <span class="boldLi">responsive</span>).</li>
+			<li><span class="boldLi">maxHeight</span>:550 - a number that represents the IGP maximum height in pixels, think of this property as it would be the max-height css property (only applies if the  <span class="boldLi">displayType</span> is <span class="boldLi">responsive</span>).</li>
+			<li><span class="boldLi">thumbnailMaxWidth</span>:210 - a number that represents the thumbnails maximum width, when IGP initializes the first time it's sets a start thumbnail width based on this parameter, the thumbnail initial width will never be larger then the parameter value.</li>
+			<li><span class="boldLi">thumbnailMaxHeight</span>:190 - a number that represents the thumbnails maximum height, when IGP initializes the first time it's sets a start thumbnail height based on this parameter, the thumbnail initial height will never be larger then the parameter value.</li>
+			<li><span class="boldLi">maxScale</span>:1.6 -the maximum allowed scale when the grid is zoomed.</li>
+			<li><span class="boldLi">minScale</span>:.8 -the minimum allowed scale when the grid is zoomed, please note that the minimum scale is too small and too many thumbnails are showed the IGP will perform poorly and in Chrome some rendering glitches might appear, we recommend to use the same settings that we've used in the examples provided, please read <a href="#prepThumbsAndImages">Preparing thumbnails and images!</a>.</li>
+			<li><span class="boldLi">autoScrollSpeed</span>:1 - an integer that represents the autoscroll speed in px.</li>
+			<li><span class="boldLi">thumbnailOverlayOpacity</span>:.7 - an float number from 0 to 1.</li>
+			<li><span class="boldLi">helpScreenOpacity</span>:.7 - an float number from 0 to 1.</li>
+			<li><span class="boldLi">backgroundColor</span>:#000000 - the main background color.</li>
+			<li><span class="boldLi">thumbnailBackgroundColor</span>:#111111 - the thumbnails background color.</li>
+			<li><span class="boldLi">thumbnailOverlayColor</span>:#000000 - the thumbnails overlay color.</li>
+			<li><span class="boldLi">helpScreenBackgroundColor</span>:#000000 - the help screen background color.</li>
+		</ul>
+		
+		//combobox settings
+		<ul>
+			<li><span class="boldLi">selectLabel</span>:"SELECT CATEGORIES" - The combobox default label.</li>
+			<li><span class="boldLi">comboBoxPosition</span>:"yes" - This can be <span class="boldLi">topleft</span> or <span class="boldLi">topright</span>.</li>
+			<li><span class="boldLi">showComboBox</span>:"yes" - this can be yes or no.</li>
+			<li><span class="boldLi">comboBoxHorizontalMargins</span>:20 - Horizontal margins/offset in pixels for the combobox.</li>
+			<li><span class="boldLi">comboBoxVerticalMargins</span>:20 - Vertical margins/offset in pixels for the combobox.</li>
+			<li><span class="boldLi">comboBoxCornerRadius</span>:20 - Corner radius in pixels for the combobox.</li>
+			<li><span class="boldLi">selctorBackgroundNormalColor</span>:"#FFFFFF" - The combobox main button background normal color.</li>
+			<li><span class="boldLi">selctorBackgroundSelectedColor</span>:"#000000" - The combobox main button background selected color.</li>
+			<li><span class="boldLi">selctorTextNormalColor</span>:"#000000" - The combobox main button text normal color.</li>
+			<li><span class="boldLi">selctorTextSelectedColor</span>:"#000000" - The combobox main button text selected color.</li>
+			<li><span class="boldLi">buttonBackgroundNormalColor</span>:"#FFFFFF" - The combobox buttons background normal color.</li>
+			<li><span class="boldLi">buttonBackgroundSelectedColor</span>:"#000000" - The combobox buttons background selected color.</li>
+			<li><span class="boldLi">buttonTextNormalColor</span>:"#000000" - The combobox buttons text normal color.</li>
+			<li><span class="boldLi">buttonTextSelectedColor</span>:"#000000" - The combobox buttons text selected color.</li>
+			<li><span class="boldLi">comboBoxShadowColor</span>:"#000000" - The combobox shadow color.</li>
+		</ul>
+		
+		//ligtbox settings 
+		<ul>
+			<li><span class="boldLi">facebookAppId</span>:"213684265480896" - this represents the APP id used by facebook to share items, for more info about how to get your own facebook APP id and setup facebook share button please read <a href="#share">Setup facebook share button</a>.</li>
+			<li><span class="boldLi">buttonsAlignment</span>:"in" - this can be in or out. If set to in the buttons will be positioned near the image. If set to out the buttons will be positioned at the right or left side of the screen.</li>
+			<li><span class="boldLi">itemBoxShadow</span>:"none" - this can be none or a box shadow style like "10px 10px 5px #888888", represents the box shadow for the current item.</li>
+			<li><span class="boldLi">descriptionWindowAnimationType</span>:"opacity" - this can be opacity or motion, represents the animation type of the description window when on show / hide.</li>
+			<li><span class="boldLi">descriptionWindowPosition</span>:"bottom" - this can be top or bottom, represents the description window position inside the lightbox item.</li>
+			<li><span class="boldLi">slideShowAutoPlay</span>:"yes" - this can be yes or no. Enable or disable the lightbox slideshow autoplay.</li>
+			<li><span class="boldLi">addKeyboardSupport</span>:"yes" - this can be yes or no. Enable or disable the keyboard left and right arrows to navigate between lightbox items.</li>
+			<li><span class="boldLi">showCloseButton</span>:"yes" - this can be yes or no. Hide or show the close button.</li>
+			<li><span class="boldLi">showFacebookButton</span>:"yes" - this can be yes or no. Hide or show the facebook button.</li>
+			<li><span class="boldLi">showZoomButton</span>:"yes" - this can be yes or no. Hide or show the image zoom in and out button.</li>
+			<li><span class="boldLi">showSlideShowButton</span>:"yes" - this can be yes or no. Hide or show the slideshow button.</li>
+			<li><span class="boldLi">showSlideShowAnimation</span>:"yes" - this can be yes or no. Hide or show the slideshow animation.</li>
+			<li><span class="boldLi">showNextAndPrevButtons</span>:"yes" - this can be yes or no. Hide or show the next and prev buttons.</li>
+			<li><span class="boldLi">showNextAndPrevButtonsOnMobile</span>:"yes" - this can be yes or no. Hide or show the next and prev buttons on mobile, this is an addition for the <span class="boldLi">showNextAndPrevButtons</span> feature.</li>
+			<li><span class="boldLi">buttonsHideDelay</span>:3 - this can be yes or no, delay in seconds until the buttons will hide.</li>
+			<li><span class="boldLi">showDescriptionButton</span>:"yes" - this can be yes or no, hide or show the description button.</li>
+			<li><span class="boldLi">showDescriptionByDefault</span>:"yes" - this can be yes or no, shows or not the description window by default.</li>
+			<li><span class="boldLi">videoShowFullScreenButton</span>:"yes" - this can be yes or no, show or hide the video player fullscreen button.</li>
+			<li><span class="boldLi">videoAutoPlay</span>:"no" - this can be yes or no.</li>
+			<li><span class="boldLi">nextVideoOrAudioAutoPlay</span>:"yes" - this can be yes or no, autoplay for the next video or audio, when changing the video if this is set to yes the video will start playing.</li>
+			<li><span class="boldLi">videoLoop</span>:"no" - this can be yes or no (doesn't apply to youtube or vimeo).</li>
+			<li><span class="boldLi">audioAutoPlay</span>:"yes" - this can be yes or no.</li>
+			<li><span class="boldLi">audioLoop</span>:"no" - this can be yes or no.</li>
+			<li><span class="boldLi">backgroundOpacity</span>:.9 - a number from 0 to 1 that represents the main background opacity.</li>
+			<li><span class="boldLi">descriptionWindowBackgroundOpacity</span>:.9 - a number from 0 to 1 that represents the description window background opacity.</li> 
+			<li><span class="boldLi">buttonsHideDelay</span>:3 - this can be yes or no, delay in seconds until the buttons will hide.</li>
+			<li><span class="boldLi">slideShowDelay</span>:6 - slideshow duration in seconds.</li>
+			<li><span class="boldLi">defaultItemWidth</span>:800 - the default lightbox item width.</li>
+			<li><span class="boldLi">defaultItemHeight</span>:500 - the default lightbox item height.</li>
+			<li><span class="boldLi">itemOffsetHeight</span>:50 - a number that represents the px to remove from the top and bottom part of the lightbox item, think of this as margin top and margin bottom for the lightbox item.</li>
+			<li><span class="boldLi">spaceBetweenButtons</span>:1 - a number that represents the space between buttons in px.</li>
+			<li><span class="boldLi">buttonsOffsetIn</span>:2 - a number that represents the space between the buttons and the main lightbox item, think of this as margin left for the buttons from the right side of the lightbox item and margin right for the buttons from the left site of the lightbox item.</li>
+			<li><span class="boldLi">buttonsOffsetOut</span>:5 - a number that represents the space between the buttons and window left or right side, think of this as margin right for the buttons from the right side of the lightbox item and margin left for the buttons from the left site of the lightbox item.</li>
+			<li><span class="boldLi">itemBorderSize</span>:4 - a number that represents the lightbox item border size in px.</li>
+			<li><span class="boldLi">itemBorderRadius</span>:4 - a number that represents the lightbox item border radius in px.</li>
+			<li><span class="boldLi">backgroundOpacity</span>:.9 - a number from 0 to 1 that represents the main background opacity.</li>
+			<li><span class="boldLi">itemBoxShadow</span>:"none" - this can be none or a box shadow style like "10px 10px 5px #888888", represents the box shadow for the current item.</li>
+			<li><span class="boldLi">itemBackgroundColor</span>:"#333333" - the lightbox item background color.</li>
+			<li><span class="boldLi">itemBorderColor</span>:"#FFFFFF" - the lightbox item border color.</li>
+			<li><span class="boldLi">lightBoxBackgroundColor</span>:"#000000" - the lightbox main background color.</li>
+			<li><span class="boldLi">descriptionWindowBackgroundColor</span>:"#FFFFFF" - the background color of the description window.</li>
+		</ul>
+		
+		<br>
+		
+		<h3 id="html"><strong>E) Setup categories / playlists</strong> - <a href="#toc">top</a></h3>
+		<p>Please open with a text editor the <span class="boldLi">responsive-minimal-skin.html</span> file as reference.</p>
+		<p>In this section is explained how to setup a playlist with two categories. There are 9 content types (image, video, audio, youtube, vimeo, flash, google maps, iframe, link) that the IGP lightbox can display and they are explained in detail below in this section. To add / remove items in the playlist add or remove items depending of the type that you need. Below is a representation of a playlist with two categories. Please note that at least 9 playlist items must be present in a playlist. To add a category add inside the playlist <span class="boldLi">div</span> an <span class="boldLi">ul</span> element with the attribute <span class="boldLi">data-category-name</span>. To remove a category delete the <span class="boldLi">ul</span> element with the attribute <span class="boldLi">data-category-name</span> and it's content that is not required any more.</p>
+		
+		<p>As it can be seen  the playlist is created using <span class="boldLi">ul</span> and <span class="boldLi">li</span> html elements with some custom attributes, what is important to note is that the playlist must have an unique id, this id is required by IGP and it must be set to the <span class="boldLi">playlistId</span> property like this <span class="boldLi">playlistId:"myPlaylist"</span>.</p>
+		
+		<pre class="brush: js; html-script: true">
+			<div id="myPlaylist" style="display:none">
+				<ul data-category-name="Category 1 (image gallery)">
+					<li data-thumbnail-path="content/media/thumbnails/1.jpg" data-url="content/media/images/1.jpg" >
+						<div>
+							<p class="gallery1DecHeader">Infinite Grid Pro</p>
+							<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/2.jpg" data-url="content/media/images/2.jpg">
+						<div>
+							<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+							<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/3.jpg" data-url="content/media/images/3.jpg">
+						<div>
+							<p class="gallery1DecHeader">Support for unlimited categories!</p>
+							<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/4.jpg" data-url="content/media/images/4.jpg">
+						<div>
+							<p class="gallery1DecHeader">Customizable thumbnails action</p>
+							<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/5.jpg" data-url="content/media/images/5.jpg">
+						<div>
+							<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+							<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/6.jpg" data-url="content/media/images/6.jpg">
+						<div>
+							<p class="gallery1DecHeader">Support for four display types</p>
+							<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/7.jpg" data-url="content/media/images/7.jpg">
+						<div>
+							<p class="gallery1DecHeader">Optional drop down categories menu</p>
+							<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/8.jpg" data-url="content/media/images/8.jpg">
+						<div>
+							<p class="gallery1DecHeader">Customizable drag</p>
+							<p class="gallery1DescP">Customizable drag, the grid drag direction can be set to horizontal, vertical, both or none.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/9.jpg" data-url="content/media/images/9.jpg">
+						<div>
+							<p class="gallery1DecHeader">Auto scroll</p>
+							<p class="gallery1DescP">Auto scroll, the grid can be set to auto scroll, the auto scroll direction and speed are customizable.</p>
+						</div>
+					</li>
+				</ul>
+				
+				<ul data-category-name="Category 2 (multimedia content)" style="display:none">
+					<li data-thumbnail-path="content/media/thumbnails/image1.jpg" data-url="content/media/images/1.jpg">
+						<div>
+							<p class="gallery1DecHeader">Infinite Grid Pro</p>
+							<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/video1.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+						<div>
+							<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+							<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/audio1.jpg" data-url="content/media/audio/audio.mp3">
+						<div>
+							<p class="gallery1DecHeader">Support for unlimited categories!</p>
+							<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/youtube1.jpg" data-url="https://www.youtube.com/watch?v=9bZkp7q19f0" data-width="1000" data-height="550">
+						<div>
+							<p class="gallery1DecHeader">Customizable thumbnails action</p>
+							<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/vimeo1.jpg" data-url="http://vimeo.com/50747914" data-width="900" data-height="550">
+						<div>
+							<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+							<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/flash1.jpg" data-url="content/media/flash/fwd.swf" data-width="800" data-height="500">
+						<div>
+							<p class="gallery1DecHeader">Support for four display types</p>
+							<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/link1.jpg" data-url="link:http://www.webdesign-flash.ro" data-target="_blank">
+						<div>
+							<p class="gallery1DecHeader">Optional drop down categories menu</p>
+							<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/iframe1.jpg" data-url="http://www.webdesign-flash.ro/iframe.html" data-width="900" data-height="650">
+						<div>
+							<p class="gallery1DecHeader">Optional drop down categories menu</p>
+							<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+						</div>
+					</li>
+					<li data-thumbnail-path="content/media/thumbnails/maps1.jpg" data-url="https://www.google.com/maps/embed/v1/place?q=castelul%20hunedoara&key=..." data-width="1100", data-height="650">
+						<div>
+							<p class="gallery1DecHeader">Customizable thumbnails action</p>
+							<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+						</div>
+					</li>
+				</ul>
+			</div></pre>
+	
+		<h4 class="bold">Image type:</h4>
+		<p>The <span class="boldLi">data-thumbnail-path</span> attribute represents the thumbnail path, the <span class="boldLi">data-url</span> attribute represents the image path. If you don't need description leave the inner html empty in this case remove the inner div.</p>
+		<pre class="brush: js; html-script: true">
+		<li data-thumbnail-path="content/media/thumbnails/image1.jpg" data-url="content/media/images/1.jpg">
+				<div>
+					<p class="gallery1DecHeader">Infinite Grid Pro</p>
+					<p class="gallery1DescP">Multimedia infinite grid for your website that can only be found on sale here, it runs on all major browsers and mobile devices like iPhone, iPad, IOS, Android and Windows8.</p>
+				</div>
+			</li></pre>
+		<br>
+		<br>
+		<h4 class="bold">Video (mp4) type:</h4>
+		<p>The <span class="boldLi">data-thumbnail-path</span> attribute represents the thumbnail path, the <span class="boldLi">data-url</span> attribute represents the video path, IGP supports two video paths, one for desktop and one for mobile, this is useful if you want a large hd video for desktop and a smaller video version for mobile, the paths are separated by comma, the mobile video path is optional. The <span class="boldLi">data-poster-path</span> attribute represents the poster path, IGP supports two poser paths, one for desktop and one for mobile, the paths are separated by comma, the mobile poster path is optional. If you don't need description leave the inner html empty in this case remove the inner div.</p>
+		<pre class="brush: js; html-script: true">
+			<li data-thumbnail-path="content/media/thumbnails/video1.jpg" data-url="content/media/videos/video-desktop.mp4,content/media/videos/video-mobile.mp4" data-poster-path="content/media/posters/video-desktop.jpg,content/media/posters/video-mobile.jpg" data-width="900" data-height="506">
+					<div>
+						<p class="gallery1DecHeader">Revolution Lightbox, think outside the lightbox!</p>
+						<p class="gallery1DescP">Full blown multimedia responsive lightbox included, it runs on all major browsers and mobile devices like iPhone, iPad, iOS, Android and Windows8. It has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+					</div>
+				</li></pre>
+		<br>
+		<br>
+		<h4 class="bold">Audio (mp3) type:</h4>
+		<p>The <span class="boldLi">data-thumbnail-path</span> attribute represents the thumbnail path, the <span class="boldLi">data-url</span> attribute represents the mp3 path, the <span class="boldLi">data-width</span> represents the maximum audio player width. If you don't need description leave the inner html empty in this case remove the inner div.</p>
+		<pre class="brush: js; html-script: true">
+			<li data-thumbnail-path="content/media/thumbnails/audio1.jpg" data-url="content/media/audio/audio.mp3">
+				<div>
+					<p class="gallery1DecHeader">Support for unlimited categories!</p>
+					<p class="gallery1DescP">Supports unlimited categories and each categories can have unlimited content.</p>
+				</div>
+			</li></pre>
+		<br>
+		<br>
+		<h4 class="bold">Youtube type:</h4>
+		<p>The <span class="boldLi">data-thumbnail-path</span> attribute represents the thumbnail path, the <span class="boldLi">data-url</span> attribute represents the youtube video url. The <span class="boldLi">data-width</span> and <span class="boldLi">data-height</span> represents the maximum video width and height. If you don't need description leave the inner html empty in this case remove the inner div.</p>
+		<pre class="brush: js; html-script: true">
+			<li data-thumbnail-path="content/media/thumbnails/youtube1.jpg" data-url="https://www.youtube.com/watch?v=9bZkp7q19f0" data-width="1000" data-height="550">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li></pre>
+		<br>
+		<br>
+		<h4 class="bold">Vimeo type:</h4>
+		<p>The <span class="boldLi">data-thumbnail-path</span> attribute represents the thumbnail path, the <span class="boldLi">data-url</span> attribute represents the vimeo video url. The <span class="boldLi">data-width</span> and <span class="boldLi">data-height</span> represents the maximum video width and height. If you don't need description leave the inner html empty in this case remove the inner div.</p>
+		<pre class="brush: js; html-script: true">
+			<li data-thumbnail-path="content/media/thumbnails/vimeo1.jpg" data-url="http://vimeo.com/50747914" data-width="900" data-height="550">
+				<div>
+					<p class="gallery1DecHeader">Outstanding performance using OOP code and CSS3</p>
+					<p class="gallery1DescP">High performance using OOP code and the latest CSS3 techniques, ready for mobile with swipe and pinch support, very flexible, easy to setup and extremely customizable.</p>
+				</div>
+			</li></pre>
+		<br>
+		<br>
+		<h4 class="bold">Flash type:</h4>
+		<p>The <span class="boldLi">data-thumbnail-path</span> attribute represents the thumbnail path, the <span class="boldLi">data-url</span> attribute represents the flash swf path. The <span class="boldLi">data-width</span> and <span class="boldLi">data-height</span> represents the maximum item width and height. If you don't need description leave the inner html empty in this case remove the inner div.</p>
+		<pre class="brush: js; html-script: true">
+		<li data-thumbnail-path="content/media/thumbnails/flash1.jpg" data-url="content/media/flash/fwd.swf" data-width="800" data-height="500">
+				<div>
+					<p class="gallery1DecHeader">Support for four display types</p>
+					<p class="gallery1DescP">Support for four display types, responsive, fixed, fullscreen and fluid width.</p>
+				</div>
+			</li></pre>
+		<br>
+		<br>
+		<h4 class="bold">Google maps type:</h4>
+		<p>The <span class="boldLi">data-thumbnail-path</span> attribute represents the thumbnail path, the <span class="boldLi">data-url</span> attribute represents the google maps url. The url can be created at <a href="https://developers.google.com/maps/documentation/embed/start" target="_blank">this link</a>, google provided a tool to create maps, just add your location and an embed code will be generated, from the embed code copy the src value and paste it as a value of the <span class="boldLi">data-url</span> attribute. The <span class="boldLi">data-width</span> and <span class="boldLi">data-height</span> represents the maximum item width and height. If you don't need description leave the inner html empty in this case remove the inner div.</p>
+		<pre class="brush: js; html-script: true">
+		<li data-thumbnail-path="content/media/thumbnails/maps1.jpg" data-url="https://www.google.com/maps/embed/v1/place?q=castelul%20hunedoara&key=..." data-width="1100", data-height="650">
+				<div>
+					<p class="gallery1DecHeader">Customizable thumbnails action</p>
+					<p class="gallery1DescP"> When a thumbnail is pressed you can choose to do nothing, display multimedia content using our great <a href="http://www.webdesign-flash.ro/p/rl/" target="_blank">revolution lightbox</a>, or to open a new webpage. The lightbox has support for image, video (mp4), audio (mp3), Vimeo, YouTube, iFrame, Google maps and flash.</p>
+				</div>
+			</li></pre>
+		<br>
+		<br>
+		<h4 class="bold">Iframe type:</h4>
+		<p>The <span class="boldLi">data-thumbnail-path</span> attribute represents the thumbnail path, the <span class="boldLi">data-url</span> attribute represents the url of the page to load in the iframe. The <span class="boldLi">data-width</span> and <span class="boldLi">data-height</span> represents the maximum item width and height. If you don't need description leave the inner html empty in this case remove the inner div.</p>
+		<pre class="brush: js; html-script: true">
+		<li data-thumbnail-path="content/media/thumbnails/iframe1.jpg" data-url="http://www.webdesign-flash.ro/iframe.html" data-width="900" data-height="650">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+					<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+				</div>
+			</li></pre>
+		<br>
+		<br>
+		<h4 class="bold">Link type:</h4>
+		<p>The <span class="boldLi">data-thumbnail-path</span> attribute represents the thumbnail path, the <span class="boldLi">data-url</span> attribute represents the url the web page to open when the thumbnail is clicked,  the <span class="boldLi">data-target</span> attribute represents the url target (_self or _blank). The <span class="boldLi">data-width</span> and <span class="boldLi">data-height</span> represents the maximum item width and height. If you don't need description leave the inner html empty in this case remove the inner div.</p>
+		<pre class="brush: js; html-script: true">
+		<li data-thumbnail-path="content/media/thumbnails/link1.jpg" data-url="link:http://www.webdesign-flash.ro" data-target="_blank">
+				<div>
+					<p class="gallery1DecHeader">Optional drop down categories menu</p>
+					<p class="gallery1DescP">Optional drop down categories menu, this categories selector can be positioned on the left or right side of the grid canvas.</p>
+				</div>
+			</li></pre>
+		<br>
+		<br>
+		
+		<h3 id="share"><strong>F) Setup Facebook share button</strong> - <a href="#toc">top</a></h3>
+		<p>In order for the facebook share button to function a facebook app key is required, this key is obtained by setting up a facebook app as follows:</p>
+
+		<ul>
+			<li> Login into your facebook account.</li>
+			<li> Open the following link  https://developers.facebook.com/apps.</li>
+			<li> From the top bar menu select  <span class="boldLi">Apps - > Create New App</span> button and complete the fields, it's not important the values passed to the display name and namespace fields, the only requirement is that in the category drop down box to select "Apps for pages".</li>
+			<li> A new page will appear, in this page from the left menu bar select <span class="boldLi">Settings</span>. The <span class="boldLi">Settings</span> page will open, in this page the App ID is displayed, this id must be passed into the Infinite Grid Pro constructor as follows <span class="boldLi">facebookAppId</span>:your app id here, example in the below image.</li>
+		</ul>
+		<img src="assets/images/firstFacebookScreen.jpg"/>
+		<ul>
+			<li>Next step is to click the <span class="boldLi">Add Platform</span> button and from the popup window click on the <span class="boldLi">Website</span> icon.</li>
+			<li> A new entry will be added in the <span class="boldLi">Settings</span> page labeled <span class="boldLi">Website</span>, in this tab set the <span class="boldLi">Site URL</span> and the <span class="boldLi">Mobile Site URL</span> to the domain name where the player is uploaded, example in the below image.</li>
+			<li>After this additions make sure you save the changes by pressing the <span class="boldLi">Save Changes</span> button.</li>
+		</ul>
+		<img src="assets/images/domain.jpg"/>
+		<ul>
+			<li>Last step is to select from the left menu bar <span class="boldLi">Status  & Review</span>, in this page there is a button that is referring to "Do you want to make this app and all its live features available to the general public?" that must be set to yes, example in the below image.</li>
+		</ul>
+		<img src="assets/images/facebookYesButton.jpg"/>
+		
+		<p>One important thing to note is that the Infinite Grid Pro domain name must be identical with the url passed to the facebook app, for example if the Infinite Grid Pro domain name is <span class="boldLi">http://www.some-domain.com</span> and the facebook app is configured with the url/domain name <span class="boldLi">http://some-domain.com</span> it will not work, both url /  domain names must be exactly the same.</p>
+		
+		<h3 id="api"><strong>G) API specifications</strong> - <a href="#toc">top</a></h3>
+		<p>Inside the start file there is HTML file called API-example.html, open it with a text editor as reference. Below is a table with all API events and methods.</p>
+		
+		<p CLASS="largeLabel1">Methods:</p>
+		<table>
+		  <tr class="firstTr">
+			<th class="fistTd">Name</td>
+			<th class="secondTd">Method</td>
+			<th class="thirdTd">Description</td>
+		  </tr>
+		  <tr>
+			<td><p class="mainProp">getCategoryName</p></td>
+			<td><span class="inlineSpan">getCategoryName(categoryId:int):String</span></td>
+			<td class="lastCol">Returns the current category name, it has an optional parameter that allows to get the category name based on id, for example if you need the second category name this method can be called like this myIGP.getCategoryName(1);.</td>
+		  </tr>
+		  <tr>
+			<td><p class="mainProp">getCategoryId</p></td>
+			<td><span class="inlineSpan">getCategoryId():Number</span</td>
+			<td class="lastCol">Returns the current category id, starting from 0 (zero).</td>
+		  </tr>
+		 </table>
+		
+		<p CLASS="largeLabel1">Event listeners:</p>
+			<table>
+			  <tr class="firstTr">
+				<th class="fistTd">Event</td>
+				<th class="secondTd">Prefix</td>
+				<th class="thirdTd">Description</td>
+			  </tr>
+			  <tr>
+				<td><span class="mainProp">ready</span></td>
+				<td><span class="inlineSpan">FWDIGP.READY</span></td>
+				<td class="lastCol">Dispatched when IGP API is ready to be used.</td>
+			  </tr>
+			  <tr>
+				<td><span class="mainProp">categoryUpdate</span></td>
+				<td><span class="inlineSpan">FWDIGP.CATEGORY_UPDATE</span></td>
+				<td class="lastCol">Dispatched when IGP a category is changed.</td>
+			  </tr>
+			  <tr>
+				<td><span class="mainProp">showStart</span></td>
+				<td><span class="inlineSpan">FWDIGP.LIGHTBOX_SHOW_START</span></td>
+				<td class="lastCol">Dispatched when IGP lightbox starts to show.</td>
+			  </tr>
+			  <tr>
+				<td><span class="mainProp">showComplete</span></td>
+				<td><span class="inlineSpan">FWDIGP.LIGHTBOX_SHOW_COMPLETE</span></td>
+				<td class="lastCol">Dispatched when IGP show animation is complete.</td>
+			  </tr>
+			  <tr>
+				<td><span class="mainProp">hideStart</span></td>
+				<td><span class="inlineSpan">FWDIGP.LIGHTBOX_HIDE_START</span></td>
+				<td class="lastCol">Dispatched when IGP lightbox starts to hide.</td>
+			  </tr>
+			  <tr>
+				<td><span class="mainProp">hideComplete</span></td>
+				<td><span class="inlineSpan">FWDIGP.LIGHTBOX_HIDE_COMPLETE</span></td>
+				<td class="lastCol">Dispatched when IGP hide animation is complete.</td>
+			  </tr>
+		</table>
+		
+        <h3 id="credits"><strong>H) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+        <p>This plugin was made by Tibi from FWD (FWDesign) <a href="http://www.webdesign-flash.ro">Future Web Design</a>, for more information and support contact us at <a href="mailto:tibi_diablo@yahoo.com">contact@webdesign-flash.ro</a></p>
+		<p>Once again, thank you so much for purchasing this item. As I said at the beginning, I'd be glad to help you if you have any questions regarding this Infinite Grid Pro and I'll do my best to assist.</p> 
+		
+		<p class="append-bottom alt large"><strong>FWDesign</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
+
+</script>
